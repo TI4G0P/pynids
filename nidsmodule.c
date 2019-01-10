@@ -530,10 +530,10 @@ pynids_register_##WHAT (PyObject *na, PyObject *args) 			\
 	if (!PyArg_ParseTuple(args, "O:register_" #WHAT, &pyFunc))	\
 		return NULL;											\
 																\
-	if (FP != NULL) {											\
+	/*if (FP != NULL) {											\
 		/* (re-)set single, global func ptr */					\
-		PyObject_Del(FP);										\
-	}															\
+		/*PyObject_Del(FP);										\
+	}*/															\
 	nids_register_##WHAT(PYDISPATCH);							\
 	DBG("Inside register_" #WHAT "(%p)\n", pyFunc);				\
 	FP = pyFunc;												\
